@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Accounting</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="menu__list">
+        <button id="transaction" class="transaction__btn">Create transaction
+          <span class="arrow"></span></button>
+        <button id="filter" class="filter__btn">Filters
+          <span class="arrow"></span></button>
+          <div id="username" class="username__btn">
+            <span id="firstName">Nik</span> <span id="lastName">Nik</span>
+          <form class="user__block" id="user__block" novalidate>
+            <input type="button" id="name__btn" value="Change name">
+            <input type="button" id="surname__btn" value="Change surname">
+            <input type="button" id="email__btn" value="Change email">
+            <input type="button" id="pass__btn" value="Change password">
+            <input type="button" id="open__change-profile" value="Change all profile">
+            <input type="button" id="open__logout" value="Log Out">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <form class="transaction__block" id="transaction__block" novalidate>
+      <div class="menu__trans">
+        <label for="type">Transaction type:</label>
+        <select id="type">
+          <option value="Expenses">Expenses</option>
+          <option value="Income">Income</option>
+        </select>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" inputmode="numeric">
+        <label for="description">Description:</label>
+        <input type="text" id="description" autocomplete="off">
+        <label>Category:</label>
+        <select id="category__expenses">
+          <optgroup label="Products">
+            <option value="Foodstuff">Foodstuff</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Real estate">
+            <option value="Apartment">Apartment</option>
+            <option value="Communal">Communal</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Entertainment">
+            <option value="Transport">Transport</option>
+            <option value="Internet/Network">Internet/Network</option>
+            <option value="Restaurant/Bar">Restaurant/Bar</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Travel">Travel</option>
+            <option value="Cinema/Theater">Cinema/Theater</option>
+            <option value="Circus/Zoo">Circus/Zoo</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Medical services">
+            <option value="Medical insurance">Medical insurance</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Other expenditure">
+            <option value="Taxes">Taxes</option>
+            <option value="Credit">Credit</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Other">Other</option>
+          </optgroup>
+        </select>
+        <select id="category__income">
+          <option value="Salary">Salary</option>
+          <option value="Present">Present</option>
+          <option value="Real estate">Real estate</option>
+          <option value="Other">Other</option>
+      </select>
+        <label for="date">Date:</label>
+        <input type="date" id="date">
+      <button type="submit" class="transaction__apply">Apply</button>
+      </div>
+    </form>
+
+    <form id="filter__block" class="filter__block" novalidate>
+      <div class="menu__filter">
+        <label for="type__filter">Transaction type:</label>
+        <select id="type__filter">
+          <option value="Expenses">Expenses</option>
+          <option value="Income">Income</option>
+          <option value="All">All</option>
+        </select>
+        <label for="date__start">Start date:</label>
+        <input type="date" id="date__start">
+        <label for="date__end">End date:</label>
+        <input type="date" id="date__end">
+        <label id="category__label">Category:</label>
+        <select id="category__expenses-filter">
+          <optgroup label="Products">
+            <option value="Foodstuff">Foodstuff</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Real estate">
+            <option value="Apartment">Apartment</option>
+            <option value="Communal">Communal</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Entertainment">
+            <option value="Transport">Transport</option>
+            <option value="Internet/Network">Internet/Network</option>
+            <option value="Restaurant/Bar">Restaurant/Bar</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Travel">Travel</option>
+            <option value="Cinema/Theater">Cinema/Theater</option>
+            <option value="Circus/Zoo">Circus/Zoo</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Medical services">
+            <option value="Medical insurance">Medical insurance</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Other expenditure">
+            <option value="Taxes">Taxes</option>
+            <option value="Credit">Credit</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <option value="All Expenses">All Expenses</option>
+        </select>
+        <select id="category__income-filter" >
+          <option value="Salary">Salary</option>
+          <option value="Present">Present</option>
+          <option value="Real estate">Real estate</option>
+          <option value="Other">Other</option>
+          <option value="All Income">All Income</option>
+      </select>
+      <button type="submit" class="filter__apply">Apply</button>
+      </div>
+    </form>
+
+    <div id="container__modal"></div>
+
+    <div id="change__modal-all" class="modal">
+      <div class="modal__content">
+        <span class="close">&times;</span>
+        <h2>Change profile</h2>
+        <span class="not-exist__error"></span>
+        <form id="form__profile" class="form__profile" novalidate>
+          <input type="text" name="username" placeholder="Change name" class="input" autocomplete="name" required>
+          <span class="error__text" id="username__error"></span>
+          <input type="text" name="surname" placeholder="Change surname" class="input" autocomplete="name" required>
+          <span class="error__text" id="surname__error"></span>
+          <input type="email" name="email" placeholder="Change email" class="input" autocomplete="email" required>
+          <span class="error__text" id="email__error"></span>
+          <input type="email" name="confirm-mail" placeholder="Confirm your email" class="input" autocomplete="email" required>
+          <span class="error__text" id="confirm__email-error"></span>
+          <input type="password" name="pass" placeholder="Change password" class="input" autocomplete="new-password" required>
+          <span class="error__text" id="change__pass-error"></span>
+          <input type="password" name="confirm-pass" placeholder="Confirm your password" class="input" autocomplete="new-password" required>
+          <span class="error__text" id="confirm__pass-error"></span>
+          <span class="error__message"></span>
+          <span class="info">You have successfully changed your data!</span><br>
+          <button type="submit" class="submit__btn">Save changes</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="logout__modal" class="modal">
+      <div class="modal__content">
+        <span class="close">&times;</span>
+        <form id="form__logout" novalidate>
+          <h2>Log out</h2>
+          <span class="not-exist__error"></span>
+          <span class="error__message"></span>
+          <button type="button" class="yes__btn">Yes</button>
+          <button type="button" class="no__btn">No</button>
+          </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="body__container"></div>
+  </main>
+  <script src="../code/homeAccounting.js"></script>
+</body>
+</html>

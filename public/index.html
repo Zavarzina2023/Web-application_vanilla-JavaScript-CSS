@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounting</title>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <nav>
+        <ul class="menu__list">
+          <li id="open__signup">Sign up</li>
+          <li id="open__login">Log in</li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div id="login__modal" class="modal">
+      <div class="modal__content">
+        <span class="close">&times;</span>
+        <h2>Log in</h2>
+        <span class="not-exist__error"></span>
+        <form id="form__login" novalidate>
+          <input type="email" name="mail" placeholder="Email" class="input" autocomplete="email" required>
+          <input type="password" name="pass" placeholder="Password" class="input" autocomplete="current-password" required><br>
+          <a href="#" id="reset__password">Reset password</a>
+          <a href="#" id="signup__link">No account? Sign up</a>
+          <span class="error__message"></span>
+          <button type="submit" class="submit__btn">Enter</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="reset__modal" class="modal">
+      <div class="modal__content">
+        <span class="close">&times;</span>
+        <h2>Reset Password</h2>
+        <span class="not-exist__error"></span>
+        <form id="form__email">
+          <input type="email" name="reset-mail" placeholder="Enter your email" class="input" autocomplete="email" required>
+          <span class="error__text" id="reset__error"></span>
+          <span class="error__message"></span>
+          <span class="info">Please check your e-mail</span><br>
+          <button type="submit" class="submit__btn">Reset</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="pass__modal" class="modal">
+      <div class="modal__content">
+        <span class="close">&times;</span>
+        <h2>New Password</h2>
+        <span class="not-exist__error"></span>
+        <form id="form__pass" action="#">
+          <input type="text" name="name" style="display: none;" aria-hidden="true" autocomplete="username">
+          <input type="password" name="new-password" placeholder="Enter your password" class="input" autocomplete="new-password" required>
+          <span class="error__text" id="password__error"></span>
+          <input type="password" name="confirm__new-password" placeholder="Confirm your password" class="input" autocomplete="new-password" required>
+          <span class="error__text" id="confirm__password-error"></span>
+          <input type="hidden" id="success__value">
+          <span class="error__message"></span>
+          <span class="info">Password changed successfully</span><br>
+          <button type="submit" class="submit__btn">Save password</button>
+        </form>
+      </div>
+    </div>
+  
+    <div id="signup__modal" class="modal">
+      <div class="modal__content">
+        <span class="close">&times;</span>
+        <h2>Registration</h2>
+        <span class="not-exist__error"></span>
+        <form id="form__signup" novalidate>
+          <input type="text" name="username" placeholder="Name" class="input" autocomplete="name" required>
+          <span class="error__text" id="username__error"></span>
+          <input type="text" name="surname" placeholder="Surname" class="input" autocomplete="name" required>
+          <span class="error__text" id="surname__error"></span>
+          <input type="email" name="mailS" placeholder="Email" class="input" autocomplete="email" required>
+          <span class="error__text" id="signup__email-error"></span>
+          <input type="email" name="confirm-mail" placeholder="Confirm your email" class="input" autocomplete="email" required>
+          <span class="error__text" id="confirm__email-error"></span>
+          <input type="password" name="passS" placeholder="Password" class="input" autocomplete="new-password" required>
+          <span class="error__text" id="signup__password-error"></span>
+          <input type="password" name="confirm-pass" placeholder="Confirm your password" class="input" autocomplete="new-password" required>
+          <span class="error__text" id="confirm__password-error"></span>
+          <a href="#" id="login__link">Already have an account? Log in</a>
+          <span class="error__message"></span>
+          <span class="info">You have successfully sign up. Welcome!</span><br>
+          <button type="submit" class="submit__btn">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="body__container"></div>
+  </main>
+  <script src="../code/index.js"></script>
+</body>
+</html>
